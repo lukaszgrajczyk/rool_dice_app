@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:rool_dice_app/main_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,47 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter First App',
       theme: ThemeData(useMaterial3: true),
-      home: const HomePage(),
+      home: const MainPage(), //mainPage
     );
   }
 }
-
-class HomePage extends StatelessWidget {
-  const HomePage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.green, Color.fromARGB(255, 161, 181, 36)],
-          begin: Alignment.bottomCenter,
-          end: Alignment.centerLeft,
-        ),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
- 
-   
-  //     child: Center(
-  //       child: Column(
-  //         mainAxisSize: MainAxisSize.min,
-  //         mainAxisAlignment: MainAxisAlignment.center,
-  //         children: [
-  //           Image.asset(width: 250, 'assets/images/dice-1.png'),
-  //           const SizedBox(height: 20),
-  //           const Button(), //button class customization
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
