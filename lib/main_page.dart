@@ -14,11 +14,13 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   var activeImage = 1;
+  var buttonStyle = false;
 
   void rolldice() {
     setState(
       () {
-        activeImage = randomizer.nextInt(5) + 1;
+        activeImage = randomizer.nextInt(6) + 1;
+        buttonStyle = !buttonStyle;
       },
     );
   }
@@ -30,11 +32,22 @@ class _MainPageState extends State<MainPage> {
         child: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              //   0.01,
+              //   1.0,
+              //   0.00,
+              //   0.0,
+              //   0.01,
+              //   0.01,
+              // ],
               colors: [
-                Color.fromARGB(255, 211, 216, 219),
-                Colors.green,
+                Color.fromARGB(255, 182, 34, 169),
+                Color.fromARGB(255, 177, 162, 25),
+                Color.fromRGBO(26, 7, 234, 0.86),
+                Color.fromARGB(220, 119, 49, 231),
+                Color.fromARGB(255, 176, 65, 65),
+                Color.fromARGB(255, 73, 201, 78),
               ],
             ),
           ),
@@ -45,19 +58,23 @@ class _MainPageState extends State<MainPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                  //assets/images/dice-6.png
-                  width: 250,
-                  'assets/images/dice-$activeImage.png'), //1,2,3,4
-              const SizedBox(height: 30),
+                width: 250,
+                'assets/images/dice-$activeImage.png',
+              ),
+              const SizedBox(
+                height: 30,
+              ),
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
-                    fixedSize: const Size(210, 50),
-                    foregroundColor: Colors.yellow,
-                    backgroundColor: Colors.black),
+                  fixedSize: const Size(
+                    210,
+                    50,
+                  ),
+                  backgroundColor: buttonStyle ? Colors.black : Colors.yellow,
+                  foregroundColor: buttonStyle ? Colors.yellow : Colors.black,
+                ),
                 onPressed: rolldice,
                 child: const StyledText(),
-
-                //button class customization
               ),
             ],
           ),
